@@ -50,7 +50,7 @@ private var dataSource: UITableViewDiffableDataSource<Section, Item>!
 ```
 In the declaration above both types are required to conform to the `Hashable` protocol as this maintains uniqueness of the section values and item values of the sections. 
 
-> You need to subclass `UITableViewDiffableDataSource` if you'll be using other data source methods from `UITableViewDataSource` such at `func titleForHeaderInSection()`
+> You need to subclass `UITableViewDiffableDataSource` if you will be using other data source methods from `UITableViewDataSource` such as `func titleForHeaderInSection()`
 
 A subclass stub of `UITableViewDiffableDataSource`
 
