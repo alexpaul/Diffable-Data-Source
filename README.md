@@ -3,10 +3,10 @@
 ## Objective 
 
 * To discuss the new declarative way of handling data sources in iOS. 
-* Know how to configure a UITableViewDiffableDataSource type. 
+* Know how to configure a `UITableViewDiffableDataSource` type. 
+* Understand `NSDiffableDataSourceSnapshot` and how to appy it to the data source. 
+* Subclass `UITableViewDiffableDataSource<SectionIdentifier, ItemIdentifier>`. 
 * Identify the benefits of using this new diffable data source way of dealing with table views or collection views. 
-* Understand what's a NSDiffableDataSourceSnapshot. 
-* Subclass UITableViewDiffableDataSource. 
 
 
 ## Introducting Diffable Data Sources
@@ -43,7 +43,7 @@ In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we se
 1. SectionIdentifier: representes the sections of the table view or collection view
 2. ItemIdentifier: represents the items of a particular section 
 
-#### Declare an instacne of the data soruce 
+#### Declare an instance of the data soruce 
 
 ```swift 
 private var dataSource: UITableViewDiffableDataSource<Framework.Category, Framework>!
