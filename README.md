@@ -25,3 +25,30 @@ section (0 moved in, 0 moved out).
 
 This is because since there in one source of truth the data source always has the most current state of our data. 
 
+#### Declarative Approach 
+
+With the introduction of SwiftUI, compostional layout and diffable data sources in iOS 13 Apple is moving away from the imperative approcah in programming and using declarative. In declarative programming you describe the how and the system decides the rest. 
+
+
+## UITableViewDiffableDataSource 
+
+Traditionally for our data source in a table view we implemented `cellForRow(at:)` and `numberOfRows(at:)` in order to setup the data for the table view or collection view. As we get new data for example from a web service API we needed to have a property observer on the main collection for the data soruce and then have a `reloadData` updating a table view. In this approach as stated earlier lead to different sources of truth for the data soruce. 
+
+In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we set our data soruce which is one of these respective types and `apply()` the snapshot. With this approach we will now have only one source of truth which is the snapshot. We can then query this snapshot for any sort of modification on inquire we have about the data. 
+
+## Configuring the UITableViewDiffableDataSource
+
+`UITableViewDiffableDataSource` is a generic class that has two types: 
+
+1. SectionIdentifier: representes the sections of the table view or collection view
+2. ItemIdentifier: represents the items of a particular section 
+
+#### Declare an instacne of the data soruce 
+
+```swift 
+private var dataSource: UITableViewDiffableDataSource<Framework.Category, Framework>!
+```
+
+In the declaration above both types are required to conform to `Hashable` as this maintains uniqueness of the values. 
+
+
