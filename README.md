@@ -46,7 +46,7 @@ In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we se
 #### Declare an instance of the data soruce 
 
 ```swift 
-private var dataSource: UITableViewDiffableDataSource<Framework.Category, Framework>!
+private var dataSource: UITableViewDiffableDataSource<Section, Item>!
 ```
 In the declaration above both types are required to conform to the `Hashable` protocol as this maintains uniqueness of the section values and item values of the sections. 
 
@@ -55,7 +55,7 @@ In the declaration above both types are required to conform to the `Hashable` pr
 A subclass stub of `UITableViewDiffableDataSource`
 
 ```swift 
-class DataSource: UITableViewDiffableDataSource<Framework.Category, Framework> {
+class DataSource: UITableViewDiffableDataSource<Section, Item> {
   // protocol methods
 }
 ```
@@ -96,16 +96,19 @@ As stated throughout this lesson the snapshot is the _source of truth_ for our t
 4. Apply the snapshot to the data source. This step is the required step to update the current snapshot which will render items to the table view or collection view. 
 
 ```swift 
-// 1 
-var snapshot = NSDiffableDataSourceSnapshot<Framework.Category, Framework>()
-
-for frameworks in Framework.getSections() {
-  let category = frameworks.first?.cateogry ?? .system
-  // 2 
-  snapshot.appendSections([category])
-  // 3 
-  snapshot.appendItems(frameworks)
+// best practice is to use an enum which is by default Hashable and have your sections as cases in the enum type
+enum Section {
+  case main 
 }
+
+// 1 
+var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+
+// 2 
+snapshot.appendSections([.main])
+
+// 3 
+snapshot.appendItems(items)
 
 // 4
 dataSource.apply(snapshot, animatingDifferences: true)
