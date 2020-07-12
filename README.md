@@ -120,11 +120,6 @@ As stated throughout this lesson the snapshot is the _source of truth_ for our t
 4. Apply the snapshot to the data source. This step is the required step to update the current snapshot which will render items to the table view or collection view. 
 
 ```swift 
-// best practice is to use an enum which is by default Hashable and have your sections as cases in the enum type
-enum Section {
-  case main 
-}
-
 // 1 
 var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
 
