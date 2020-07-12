@@ -56,12 +56,12 @@ enum Section {
 
 ```swift 
 struct Item: Hashable {
-  let name: String 
+  let name: String
   let price: Double
-  let identifier = UUID() 
+  let identifier = UUID()
   
-  func hash(into hasher: Hasher) {
-    hasher.combine(identifier) 
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(identifier)
   }
 }
 ```
