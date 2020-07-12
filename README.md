@@ -36,7 +36,20 @@ Traditionally for our data source in a table view and collection views we implem
 
 In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we set our data soruce which is one of these respective types and `apply()` the snapshot to the data source instance. With diffable data sources we will now have only one source of truth which is the **snapshot**. We can then query this snapshot for any sort of modification or inquire we have about the data. 
 
-## 4. Setting up the UITableViewDiffableDataSource
+
+## 4. Configure the table view or collection view using Storyboard or Programmatic UI 
+
+```swift 
+tableView = UITableView(frame: view.bounds, style: .plain)
+tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+tableView.backgroundColor = .systemBackground
+tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+view.addSubview(tableView)
+```
+
+> Requirements as with the traditional way of configuring a table view is to register a cell
+
+## 5. Setting up the UITableViewDiffableDataSource
 
 `UITableViewDiffableDataSource` is a generic class that has two types: 
 
@@ -110,7 +123,7 @@ dataSource.defaultRowAnimation = .fade
 2. Add the default row animation to the data source. The default animation is `.automatic`. Some other options `.fade` `.top` `.bottom`
 
 
-## 5. Setting up the snapshot 
+## 6. Setting up the snapshot 
 
 As stated throughout this lesson the snapshot is the _source of truth_ for our table view's data so let's go ahead and configure it. The basic steps for setting up a snapshot is as follows: 
 
@@ -133,7 +146,7 @@ snapshot.appendItems(items)
 dataSource.apply(snapshot, animatingDifferences: true)
 ```
 
-## 6. Some useful actions on a snapshot 
+## 7. Some useful actions on a snapshot 
 
 #### 1. Getting the current snapshot 
 
@@ -149,7 +162,7 @@ updatesSnapshot.sectionIdentifiers.forEach {
 }
 ```
 
-## 7. Glossary 
+## 8. Glossary 
 
 1. UITableViewDiffableDataSource 
 1. UICollectionViewDiffableDataSource
@@ -161,7 +174,7 @@ updatesSnapshot.sectionIdentifiers.forEach {
 1. `itemIdentifier(for:)`
 1. CellProvider 
 
-## 8. Resources 
+## 9. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
 2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
