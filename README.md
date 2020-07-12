@@ -122,7 +122,7 @@ dataSource.apply(snapshot, animatingDifferences: true)
 let updatedSnapshot = dataSource.snapshot() 
 ```
 
-#### 2. Using the snapshot to perfor operation on each section of the data source do the following
+#### 2. Using the snapshot to perform an operation on each section of a Table View or Collection View
 
 ```swift 
 updatesSnapshot.sectionIdentifiers.forEach {
