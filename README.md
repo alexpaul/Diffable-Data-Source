@@ -111,5 +111,23 @@ for frameworks in Framework.getSections() {
 dataSource.apply(snapshot, animatingDifferences: true)
 ```
 
+## Glossary 
 
+1. UITableViewDiffableDataSource 
+1. UICollectionViewDiffableDataSource
+1. NSDiffableDataSourceSnapshot
+1. SectionIdentifierType
+1. ItemIdentifierType 
+1. `apply()`
+1. `snapshot()`
+1. `itemIdentifier(for:)`
+1. CellProvider 
+
+## Resources 
+
+1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
+2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
+3. [WWDC 2019 - Advances in UI Data Sources](https://developer.apple.com/videos/play/wwdc2019/220/)
+4. [Apple docs - Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
+5. [UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
 
