@@ -148,5 +148,5 @@ updatesSnapshot.sectionIdentifiers.forEach {
 2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
 3. [WWDC 2019 - Advances in UI Data Sources](https://developer.apple.com/videos/play/wwdc2019/220/)
 4. [Apple docs - Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
-5. [UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
+5. [NSDiffableDataSourceSnapshot](https://developer.apple.com/documentation/uikit/nsdiffabledatasourcesnapshot)
 
