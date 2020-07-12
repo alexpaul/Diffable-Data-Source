@@ -36,7 +36,7 @@ Traditionally for our data source in a table view we implemented `cellForRow(at:
 
 In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we set our data soruce which is one of these respective types and `apply()` the snapshot. With this approach we will now have only one source of truth which is the snapshot. We can then query this snapshot for any sort of modification on inquire we have about the data. 
 
-## Configuring the UITableViewDiffableDataSource
+## Setting up the UITableViewDiffableDataSource
 
 `UITableViewDiffableDataSource` is a generic class that has two types: 
 
@@ -48,7 +48,35 @@ In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we se
 ```swift 
 private var dataSource: UITableViewDiffableDataSource<Framework.Category, Framework>!
 ```
+In the declaration above both types are required to conform to `Hashable` as this maintains uniqueness of the section values and item values of the sections. 
 
-In the declaration above both types are required to conform to `Hashable` as this maintains uniqueness of the values. 
+You need to subclass `UITableViewDiffableDataSource` if you'll be using other data source methods such at `titleForHeaderInSection`
+
+```swift 
+class DataSource: UITableViewDiffableDataSource<Framework.Category, Framework> {
+  // protocol methods
+}
+```
+
+We can now update our declaration for the `dataSource` instance to use our sublass. 
+
+```swift 
+private var dataSource: DataSource!
+```
+
+
+#### Configuring the data source instance
+
+```swift 
+dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, framework) -> UITableViewCell? in
+  let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+  //let framework = frameworks[indexPath.section][indexPath.row]
+  cell.textLabel?.text = framework.name
+  return cell
+})
+```
+
+`cellProvider` is a closure that has 3 arguments: the tableView, indexPath of the current item and the item itself. This closure returns a `UITableViewCell`. In the closure body you would do your cell configuration like done in `cellForRow(at:)`. Here no longer do we have to use the indexPath to find the item we need whether we are using a one or two-dimensional array. 
+
 
 
