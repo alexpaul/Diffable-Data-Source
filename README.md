@@ -43,11 +43,35 @@ In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we se
 1. SectionIdentifierType: representes the sections of the table view or collection view. 
 2. ItemIdentifierType: represents the items of a particular section. 
 
+#### Section identifier type  
+
+```swift 
+// best practice is to use an enum which is by default Hashable and have your sections as cases in the enum type
+enum Section {
+  case main 
+}
+```
+
+#### Item identifier type  
+
+```swift 
+struct Item: Hashable {
+  let name: String 
+  let price: Double
+  let identifier = UUID() 
+  
+  func hash(into hasher: Hasher) {
+    hasher.combine(identifier) 
+  }
+}
+```
+
 #### Declare an instance of the data soruce 
 
 ```swift 
 private var dataSource: UITableViewDiffableDataSource<Section, Item>!
 ```
+
 In the declaration above both types are required to conform to the `Hashable` protocol as this maintains uniqueness of the section values and item values of the sections. 
 
 > You need to subclass `UITableViewDiffableDataSource` if you will be using other data source methods from `UITableViewDataSource` such as `func titleForHeaderInSection()`
