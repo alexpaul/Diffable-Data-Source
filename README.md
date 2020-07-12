@@ -68,15 +68,21 @@ private var dataSource: DataSource!
 #### Configuring the data source instance
 
 ```swift 
+// 1 
 dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, framework) -> UITableViewCell? in
   let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
   //let framework = frameworks[indexPath.section][indexPath.row]
   cell.textLabel?.text = framework.name
   return cell
 })
+
+// 2 
+dataSource.defaultRowAnimation = .fade
 ```
 
-`cellProvider` is a closure that has 3 arguments: a pointer to the tableView, indexPath of the current item and the item itself. This closure returns a `UITableViewCell`. The closure body is the place for cell configurations like done traditionally in the `cellForRow(at:)` method. In the cell provider we do not use the indexPath to find the item in question as we have a pointer to the item as one of the three arguments. 
+1. `cellProvider` is a closure that has 3 arguments: a pointer to the tableView, indexPath of the current item and the item itself. This closure returns a `UITableViewCell`. The closure body is the place for cell configurations like done traditionally in the `cellForRow(at:)` method. In the cell provider we do not use the indexPath to find the item in question as we have a pointer to the item as one of the three arguments. 
+
+2. Add the default row animation to the data source. The default animation is `.automatic`.
 
 
 ## Setting up the snapshot 
@@ -86,8 +92,7 @@ As stated throughout this lesson the snapshot is the source of truth for our tab
 1. Declare and instance of `NSDiffableDataSourceSnapshot` which needs to match the section and item type you specified for the data source. 
 2. Append the required sections to the snapshot. 
 3. Append the items for the section or each section if the table view or collection view has multiple sections. 
-4. Add the default row animation to the data source. The default animation is `.automatic`.
-5. Apply the snapshot to the data source. This step is the required step to update the current snapshot which will render items to the table view or collection view. 
+4. Apply the snapshot to the data source. This step is the required step to update the current snapshot which will render items to the table view or collection view. 
 
 ```swift 
 // 1 
