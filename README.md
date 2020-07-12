@@ -114,7 +114,23 @@ snapshot.appendItems(items)
 dataSource.apply(snapshot, animatingDifferences: true)
 ```
 
-## 6. Glossary 
+## 6. Some useful actions on a snapshot 
+
+#### 1. Getting the current snapshot 
+
+```swift 
+let updatedSnapshot = dataSource.snapshot() 
+```
+
+#### 2. Using the snapshot to perfor operation on each section of the data source do the following
+
+```swift 
+updatesSnapshot.sectionIdentifiers.forEach {
+  // code here
+}
+```
+
+## 7. Glossary 
 
 1. UITableViewDiffableDataSource 
 1. UICollectionViewDiffableDataSource
@@ -126,7 +142,7 @@ dataSource.apply(snapshot, animatingDifferences: true)
 1. `itemIdentifier(for:)`
 1. CellProvider 
 
-## 7. Resources 
+## 8. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
 2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
