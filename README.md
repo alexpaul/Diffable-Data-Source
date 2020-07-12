@@ -143,7 +143,7 @@ snapshot.appendSections([.main])
 snapshot.appendItems(items)
 
 // 4
-dataSource.apply(snapshot, animatingDifferences: true)
+dataSource.apply(snapshot, animatingDifferences: false)
 ```
 
 ## 7. Some useful actions on a snapshot 
