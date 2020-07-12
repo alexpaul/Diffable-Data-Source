@@ -1,4 +1,4 @@
-# Diffable Data Sources
+# Diffable Data Source
 
 ## 1. Objective 
 
