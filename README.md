@@ -1,6 +1,6 @@
 # Diffable Data Sources
 
-## Objective 
+## 1. Objective 
 
 * To discuss the new declarative way of handling data sources in iOS. 
 * Know how to configure a `UITableViewDiffableDataSource` type. 
@@ -9,7 +9,7 @@
 * Identify the benefits of using diffable data source for table view and collection views going forward. 
 
 
-## Introducting Diffable Data Sources
+## 2. Introducting Diffable Data Sources
 
 In iOS 13 at WWDC 2019, Apple, introduced a new approach to handling data sources when it comes to setting up table views and collection views. This new approach aims to solve a varied amount of potential bugs in iOS development. Some of the reasons behind those potential bugs is due to the fact there are various state changes in which our data and UI can be and different sources of truth. With the introduction of diffable data sources there is one source of truth. This source of truth we will see throughout this lesson is a universal **snapshot** associated with the table view or collection view. Once you adopt diffable data sources no longer will you encounter the following errors below, where your app crashes at runtime due to `NSInternalInconsistencyException`: 
 
@@ -30,13 +30,13 @@ This potential error has been eradicated with diffable data sources because ther
 With the introduction of SwiftUI, collection view compostional layout and diffable data sources in iOS 13 Apple is clearly moving away from the imperative approach to programming and using declarative and a compositional approach. In declarative programming you describe _the how_ and the system in this case iOS decides the rest. 
 
 
-## UITableViewDiffableDataSource 
+## 3. UITableViewDiffableDataSource 
 
 Traditionally for our data source in a table view and collection views we implemented `cellForRow(at:)` and `numberOfRows(at:)` in order to setup the data for the table view or collection view. As we get new data for example from a web service API we needed to have a property observer on the main collection (array or dictionary) for the data soruce and then have `reloadData` called to update the table view's items. In this tradional approach as stated earlier, this lead to different sources of truth for the data soruce and more maintaining our UI in various places which leads to bugs. 
 
 In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we set our data soruce which is one of these respective types and `apply()` the snapshot to the data source instance. With diffable data sources we will now have only one source of truth which is the **snapshot**. We can then query this snapshot for any sort of modification or inquire we have about the data. 
 
-## Setting up the UITableViewDiffableDataSource
+## 4. Setting up the UITableViewDiffableDataSource
 
 `UITableViewDiffableDataSource` is a generic class that has two types: 
 
@@ -86,7 +86,7 @@ dataSource.defaultRowAnimation = .fade
 2. Add the default row animation to the data source. The default animation is `.automatic`. Some other options `.fade` `.top` `.bottom`
 
 
-## Setting up the snapshot 
+## 5. Setting up the snapshot 
 
 As stated throughout this lesson the snapshot is the _source of truth_ for our table view's data so let's go ahead and configure it. The basic steps for setting up a snapshot is as follows: 
 
@@ -114,7 +114,7 @@ snapshot.appendItems(items)
 dataSource.apply(snapshot, animatingDifferences: true)
 ```
 
-## Glossary 
+## 6. Glossary 
 
 1. UITableViewDiffableDataSource 
 1. UICollectionViewDiffableDataSource
@@ -126,7 +126,7 @@ dataSource.apply(snapshot, animatingDifferences: true)
 1. `itemIdentifier(for:)`
 1. CellProvider 
 
-## Resources 
+## 7. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
 2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
