@@ -34,7 +34,7 @@ With the introduction of SwiftUI, collection view compostional layout and diffab
 
 Traditionally for our data source in a table view and collection views we implemented `cellForRow(at:)` and `numberOfRows(at:)` in order to setup the data for the table view or collection view. As we get new data for example from a web service API we needed to have a property observer on the main collection (array or dictionary) for the data soruce and then have `reloadData` called to update the table view's items. In this tradional approach as stated earlier, this lead to different sources of truth for the data soruce and more maintaining our UI in various places which leads to bugs. 
 
-In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we set our data soruce which is one of these respective types and `apply()` the snapshot to the data source instance. With diffable data sources we will now have only one source of truth which is the **snapshot**. We can then query this snapshot for any sort of modification or inquire we have about the data. 
+Both table views and collection views support diffable data source. We use their respective APIs of `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` to create and configure a data soruce instance. After modifying the snapshot, we use `apply()` to commit the changes which updates the table view UI. With diffable data source we now have only one source of truth which is the **snapshot**. We can then query this snapshot for any sort of modification needed or query we have about the data. 
 
 
 ## 4. Configure the table view or collection view using Storyboard or Programmatic UI 
