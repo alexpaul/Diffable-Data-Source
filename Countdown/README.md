@@ -26,3 +26,5 @@ private var startInterval = 10 // seconds
 
 ![countdown app](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/countdown-app.png)
 
+
+[Back to main Lesson](https://github.com/alexpaul/Diffable-Data-Source)
