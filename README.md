@@ -40,6 +40,8 @@ In `UITableViewDiffableDataSource` or `UICollectionViewDiffableDataSource` we se
 ## 4. Configure the table view or collection view using Storyboard or Programmatic UI 
 
 ```swift 
+private var tableView: UITableView! 
+
 tableView = UITableView(frame: view.bounds, style: .plain)
 tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 tableView.backgroundColor = .systemBackground
