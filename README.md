@@ -27,7 +27,7 @@ This potential error has been eradicated with diffable data sources because ther
 
 #### Declarative Approach 
 
-With the introduction of SwiftUI, collection view compostional layout and diffable data sources in iOS 13 Apple is clearly moving away from the imperative approach to programming and using declarative and a compositional approach. In declarative programming you describe the structure of the program rather than describing its control flow. 
+With the introduction of SwiftUI, collection view compostional layout and diffable data sources in iOS 13, Apple is clearly moving away from the imperative approach to programming and using declarative and a compositional approach. In declarative programming you describe the structure of the program rather than describing its control flow. 
 
 
 ## 3. UITableViewDiffableDataSource 
