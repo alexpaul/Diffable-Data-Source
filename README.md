@@ -53,7 +53,7 @@ view.addSubview(tableView)
 
 ## 5. Setting up the UITableViewDiffableDataSource
 
-`UITableViewDiffableDataSource` is a generic class that has two types: 
+`UITableViewDiffableDataSource` is a generic class that has two types. Both types need to conform to the `Hashable` protocol: 
 
 1. SectionIdentifierType: representes the sections of the table view or collection view. 
 2. ItemIdentifierType: represents the items of a particular section. 
