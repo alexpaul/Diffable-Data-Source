@@ -23,3 +23,6 @@ private var startInterval = 10 // seconds
 7. Add the `decrementCounter` method.
 8. Add the `ship` method. 
 9. Add a `refresh` bar button item to restart countdown.
+
+![countdown app](Assets/countdown-app.png)
+
