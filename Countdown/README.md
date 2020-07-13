@@ -24,5 +24,5 @@ private var startInterval = 10 // seconds
 8. Add the `ship` method. 
 9. Add a `refresh` bar button item to restart countdown.
 
-![countdown app](Assets/countdown-app.png)
+![countdown app](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/countdown-app.png)
 
