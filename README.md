@@ -209,6 +209,8 @@ private var startInterval = 10 // seconds
 
 ![countdown app](Assets/countdown-app.png)
 
+[Completed Project](https://github.com/alexpaul/Diffable-Data-Source/tree/master/Countdown)
+
 ## 10. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
