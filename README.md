@@ -184,7 +184,7 @@ updatesSnapshot.sectionIdentifiers.forEach {
 
 ## 9. Let's build a countdown app using diffable data sources
 
-Our countdown app will start from 10 and decrement the initial value by 1 every second and add the new value as a row in the table view. Throghout the app we will make use of the **snapshot** as we update the table view and `apply` the changes. 
+Our countdown app will start from 10 and decrement the initial value by 1 every second and add the new value as a row in the table view. Throughout the app we will make use of the **snapshot** as we update the table view and `apply` the changes. 
 
 ![countdown app](Assets/countdown-app.png)
 
