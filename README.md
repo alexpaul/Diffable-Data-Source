@@ -92,13 +92,16 @@ private var dataSource: UITableViewDiffableDataSource<Section, Item>!
 
 In the declaration above both types are required to conform to the `Hashable` protocol as this maintains uniqueness of the section values and item values of the sections. 
 
-> You need to subclass `UITableViewDiffableDataSource` if you will be using other data source methods from `UITableViewDataSource` such as `func titleForHeaderInSection()`
+> If you need to to use other data source methods from `UITableViewDataSource` such as `titleForHeaderInSection()` or `commit editingStyle:` then you have to subclass `UITableViewDiffableDataSource` and match the `SectionIdentifierType` and the `ItemIdentifierType` as you defined for the data source. 
 
 A subclass stub of `UITableViewDiffableDataSource`
 
 ```swift 
 class DataSource: UITableViewDiffableDataSource<Section, Item> {
   // protocol methods
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    // code here
+  }
 }
 ```
 
