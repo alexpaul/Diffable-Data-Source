@@ -58,16 +58,19 @@ view.addSubview(tableView)
 1. SectionIdentifierType: representes the sections of the table view or collection view. 
 2. ItemIdentifierType: represents the items of a particular section. 
 
-#### Section identifier type  
+#### Define the Section identifier type  
+
+It's good practice to use an `enum` which is by default `Hashable` and have your sections as cases of the enum type. 
 
 ```swift 
-// best practice is to use an enum which is by default Hashable and have your sections as cases in the enum type
 enum Section {
   case main 
 }
 ```
 
-#### Item identifier type  
+#### Define the Item identifier type  
+
+This will be the type of the items in the table view cells or collection view cells. Again here the `ItemIdentifierType` of the `UITableViewDiffableDataSource` needs to conform to `Hashable`. We also use the `hash` function to define which property of the Item type should be used for hashing the type's uniqueness. In the case below we use the `identifier` property. 
 
 ```swift 
 struct Item: Hashable {
