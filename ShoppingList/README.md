@@ -24,7 +24,21 @@ In the Shopping app the user will be able view multiple sections of items and th
 
    ![sections](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/shopping-list-sections.png)
    
-#### Part 2 - Add an item to a given section 
+#### Part 2 - Add an item to a given section
+
+Challenge: 
+
+```swift 
+// Challenge
+// TODO:
+// 1. create a AddItemViewController.swift file
+// 2. add a View Controller object in Storyboard
+// 3. add 2 textfields, one for the item name and other for price
+// 4. add a picker view to manage the categories
+// 5. user is able to add a new item to a given category and click on a submit button
+// 6. use any communication paradigm to get data from the AddItemViewController back to the ViewController
+// types: (delegation, KVO, notification center, unwind segue, callback, combine)
+```
 
 #### Part 3 - Delete a given item 
 
