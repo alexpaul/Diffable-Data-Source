@@ -243,7 +243,7 @@ In the Shopping app the user will be able view multiple sections of items and th
 
 #### Part 4 - Reorder itmes 
 
-## 10. Resources 
+## 11. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
 2. [Apple docs - UICollectionViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uicollectionviewdiffabledatasource)
