@@ -254,7 +254,7 @@ Scenarios:
 
 ![reorder sketch](Assets/reorder-scenarios.jpg)
 
-Below are all the steps needed for reordering: 
+Head to the **DataSource** class and implement the `func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)` method and follow the steps below. 
 
 1. Get the source item using the source index path. 
 2. **Scenario 1**: Check to make sure the item is not being moved to the same index path. 
