@@ -259,15 +259,15 @@ Below are all the steps needed for reordering:
 3. Get the destination item that will be replaced at the given destination index path. 
 4. Get the current snapshot. 
 5. **Scenario 2 and 3** Moving to an index path that exist. Here you want to make sure the destination item is not nil. 
-   a. Get the source index and the destination index. 
-   b. Determine whether the source item should be inserted before or after the destination item. 
-   c. Remove the source item from the snapshot before inserting the item at its new position. 
-   d. **Scenario 2**: Moving the source item after the destination item. 
-   e. **Scenario 3**: Moving the source item before the destination item. 
+    1. Get the source index and the destination index. 
+    2. Determine whether the source item should be inserted before or after the destination item. 
+    3. Remove the source item from the snapshot before inserting the item at its new position. 
+    4. **Scenario 2**: Moving the source item after the destination item. 
+    5. **Scenario 3**: Moving the source item before the destination item. 
 6. **Scenario 4**: Moving the item to an index path that does not yet exist. 
-   a. Get the destination section identifier. 
-   b. Remove the source item from the snapshot before inserting the item at its new position.
-   c. Append the item at its new section destination. 
+    1. Get the destination section identifier. 
+    2. Remove the source item from the snapshot before inserting the item at its new position.
+    3. Append the item at its new section destination. 
 7. Apply the snapshot. 
 
 > As of this writing as per animatingDifference make sure to keep at the default state of false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
