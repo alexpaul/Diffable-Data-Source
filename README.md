@@ -266,7 +266,7 @@ Head to the **DataSource** class and implement the `func tableView(_ tableView: 
 1. Return to in the body of `func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath)`. 
 2. In the `func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)` method perform the following: 
    1. Get the current snapshot. 
-   2. Get the item sung `itemIdentifier(for: )` method of the data source. 
+   2. Get the item using the `itemIdentifier(for: )` method of the data source. 
    3. Delete the items from the snapshot. 
    4. Apply the snapshot. 
 
