@@ -243,6 +243,35 @@ In the Shopping app the user will be able view multiple sections of items and th
 
 #### Part 4 - Reorder itmes 
 
+Reordering rows has a varied numbered of steps and is quite complex. There are four main scenarios at pictured below in order to achieve reordering.
+
+Scenarios: 
+
+1. Moving to the same index path. 
+2. Moving the source item after the destination item. 
+3. Moving the source item before the destination item. 
+4. Moving the item to an index path that does yet exist. 
+
+Below are all the steps needed for reordering: 
+
+1. Get the source item using the source index path. 
+2. **Scenario 1**: Check to make sure the item is not being moved to the same index path. 
+3. Get the destination item that will be replaced at the given destination index path. 
+4. Get the current snapshot. 
+5. **Scenario 2 and 3** Moving to an index path that exist. Here you want to make sure the destination item is not nil. 
+   a. Get the source index and the destination index. 
+   b. Determine whether the source item should be inserted before or after the destination item. 
+   c. Remove the source item from the snapshot before inserting the item at its new position. 
+   d. **Scenario 2**: Moving the source item after the destination item. 
+   e. **Scenario 3**: Moving the source item before the destination item. 
+6. **Scenario 4**: Moving the item to an index path that does not yet exist. 
+   a. Get the destination section identifier. 
+   b. Remove the source item from the snapshot before inserting the item at its new position.
+   c. Append the item at its new section destination. 
+7. Apply the snapshot. 
+
+> As of this writing as per animatingDifference make sure to keep at the default state of false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
+
 ![reorder sketch](Assets/reorder-scenarios.jpg)
 
 ## 11. Resources 
