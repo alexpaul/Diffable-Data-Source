@@ -239,7 +239,37 @@ In the Shopping app the user will be able view multiple sections of items and th
    
 #### Part 2 - Add an item to a given section 
 
+Challenge for the reader: 
+
+```swift 
+// Challenge: 
+// TODO:
+// 1. create a AddItemViewController.swift file
+// 2. add a View Controller object in Storyboard
+// 3. add 2 textfields, one for the item name and other for price
+// 4. add a picker view to manage the categories
+// 5. user is able to add a new item to a given category and click on a submit button
+// 6. use any communication paradigm to get data from the AddItemViewController back to the ViewController
+// types: (delegation, KVO, notification center, unwind segue, callback, combine)
+```
+
+1. After the above challenge is done the new item will be available to the **ItemFeedController**. 
+2. If delegation was used the item will be available in the protocol method that the ItemFeedController needs to conform to. 
+3. Get the current snapshot. 
+4. Append the new item to the snapshot using `appendsItems(_, toSection: )` method. 
+5. Apply the snapshot. 
+
 #### Part 3 - Delete a given item 
+
+Head to the **DataSource** class and implement the `func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath)` and `func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)`
+
+1. Return to in the body of `func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath)`. 
+2. In the `func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)` method perform the following: 
+   1. Get the current snapshot. 
+   2. Get the item sung `itemIdentifier(for: )` method of the data source. 
+   3. Delete the items from the snapshot. 
+   4. Apply the snapshot. 
+
 
 #### Part 4 - Reorder itmes 
 
