@@ -37,11 +37,12 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
   }
   
   override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-    // 3 scenarios
+    // 4 scenarios
     /*
-     1. after destination
-     2. before destination
-     3. new index path
+     1. moving to the same index path
+     2. after destination
+     3. before destination
+     4. new index path
     */
     
     // 1
@@ -51,7 +52,7 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
     }
 
     // 2
-    // SCENARIO #1 where user is trying to move an item to itself or user simply wants to cancel action
+    // SCENARIO #1 where user is trying to move an item to the same index path
     guard sourceIndexPath != destinationIndexPath else {
       return
     }
@@ -77,11 +78,8 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
         let isAfter = destinationIndex > sourceIndex &&
           snapshot.sectionIdentifier(containingItem: sourceIdentifier) == snapshot.sectionIdentifier(containingItem: destinationIdentifier)
 
-        dump(snapshot.sectionIdentifier(containingItem: sourceIdentifier))
-        dump(snapshot.sectionIdentifier(containingItem: destinationIdentifier))
-
         // c
-        // remove the source item from the snapshot before inserting it again
+        // remove the source item from the snapshot before inserting at new position
         snapshot.deleteItems([sourceIdentifier])
 
         // d
@@ -89,7 +87,10 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
         if isAfter {
           print("after destination")
           snapshot.insertItems([sourceIdentifier], afterItem: destinationIdentifier)
-        } else {
+        }
+        
+        // SCENARIO #3 moving source before destination
+        else {
           print("before destination")
           snapshot.insertItems([sourceIdentifier], beforeItem: destinationIdentifier)
         }
@@ -97,7 +98,7 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
     }
 
     // 6
-    // SCENARIO #3 moving to an index path that does yet exist
+    // SCENARIO #4 moving to an index path that does yet exist
     else {
       print("new index path")
       // a
@@ -105,7 +106,7 @@ class DataSource: UITableViewDiffableDataSource<Category, Item> {
       let destinationSectionIdentifier = snapshot.sectionIdentifiers[destinationIndexPath.section]
 
       // b
-      // remove the source item from the snapshot before inserting it again
+      // remove the source item from the snapshot before inserting at new position
       snapshot.deleteItems([sourceIdentifier])
 
       // c
