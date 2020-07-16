@@ -252,6 +252,8 @@ Scenarios:
 3. Moving the source item before the destination item. 
 4. Moving the item to an index path that does yet exist. 
 
+![reorder sketch](Assets/reorder-scenarios.jpg)
+
 Below are all the steps needed for reordering: 
 
 1. Get the source item using the source index path. 
@@ -271,8 +273,6 @@ Below are all the steps needed for reordering:
 7. Apply the snapshot. 
 
 > As of this writing as per animatingDifference make sure to keep at the default state of false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
-
-![reorder sketch](Assets/reorder-scenarios.jpg)
 
 ## 11. Resources 
 
