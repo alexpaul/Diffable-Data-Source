@@ -69,7 +69,7 @@ Scenarios:
 3. Moving the source item before the destination item. 
 4. Moving the item to an index path that does yet exist. 
 
-![reorder sketch](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/reorder-scenarios.png)
+![reorder sketch](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/reorder-scenarios.jpg)
 
 Head to the **DataSource** class and implement the `func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)` method and follow the steps below. 
 
