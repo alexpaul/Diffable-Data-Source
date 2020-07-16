@@ -243,7 +243,7 @@ In the Shopping app the user will be able view multiple sections of items and th
 
 #### Part 4 - Reorder itmes 
 
-![reorder sketch](Assets/reorder-sketch.jpg)
+![reorder sketch](Assets/reorder-scenarios.jpg)
 
 ## 11. Resources 
 
