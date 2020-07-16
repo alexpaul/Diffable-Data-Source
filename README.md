@@ -256,23 +256,23 @@ Scenarios:
 
 Head to the **DataSource** class and implement the `func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)` method and follow the steps below. 
 
-1. Get the source item using the source index path. 
-2. **Scenario 1**: Check to make sure the item is not being moved to the same index path. 
-3. Get the destination item that will be replaced at the given destination index path. 
+1. Use a guard statement to get the source item using the source index path and `itemIdentifier(for: )` method. 
+2. **Scenario 1**: Use a guard to check to make sure the item is not being moved to the same index path. 
+3. Use `itemIdentifier(for: )` to get the destination item that will be replaced at the given destination index path. 
 4. Get the current snapshot. 
 5. **Scenario 2 and 3** Moving to an index path that exist. Here you want to make sure the destination item is not nil. 
-    1. Get the source index and the destination index. 
-    2. Determine whether the source item should be inserted before or after the destination item. 
+    1. Use optional binding to get both the source index and the destination index. 
+    2. Determine whether the source item should be inserted before or after the destination item. The is done by the resulting boolean value of determining if the        destination index is greater than the source index and the sections are the same. 
     3. Remove the source item from the snapshot before inserting the item at its new position. 
     4. **Scenario 2**: Moving the source item after the destination item. 
     5. **Scenario 3**: Moving the source item before the destination item. 
 6. **Scenario 4**: Moving the item to an index path that does not yet exist. 
-    1. Get the destination section identifier. 
+    1. Get the destination section identifier using `sectionIdentifiers` on the snapshot and accessing the destination index path's section. 
     2. Remove the source item from the snapshot before inserting the item at its new position.
     3. Append the item at its new section destination. 
 7. Apply the snapshot. 
 
-> As of this writing as per animatingDifference make sure to keep at the default state of false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
+> As of this writing as per animatingDifference make sure to set it to false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
 
 ## 11. Resources 
 
