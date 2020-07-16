@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5714570424BF813B00E4F9E1 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5714570324BF813B00E4F9E1 /* AddItemViewController.swift */; };
 		571D168524BF46FD0089FB6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D168424BF46FD0089FB6F /* AppDelegate.swift */; };
 		571D168724BF46FD0089FB6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D168624BF46FD0089FB6F /* SceneDelegate.swift */; };
-		571D168924BF46FD0089FB6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D168824BF46FD0089FB6F /* ViewController.swift */; };
+		571D168924BF46FD0089FB6F /* ItemFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571D168824BF46FD0089FB6F /* ItemFeedViewController.swift */; };
 		571D168C24BF46FD0089FB6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571D168A24BF46FD0089FB6F /* Main.storyboard */; };
 		571D168E24BF46FD0089FB6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571D168D24BF46FD0089FB6F /* Assets.xcassets */; };
 		571D169124BF46FD0089FB6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571D168F24BF46FD0089FB6F /* LaunchScreen.storyboard */; };
@@ -19,10 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5714570324BF813B00E4F9E1 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		571D168124BF46FD0089FB6F /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571D168424BF46FD0089FB6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		571D168624BF46FD0089FB6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		571D168824BF46FD0089FB6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		571D168824BF46FD0089FB6F /* ItemFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFeedViewController.swift; sourceTree = "<group>"; };
 		571D168B24BF46FD0089FB6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		571D168D24BF46FD0089FB6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571D169024BF46FD0089FB6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,9 +67,10 @@
 				571D168424BF46FD0089FB6F /* AppDelegate.swift */,
 				571D168624BF46FD0089FB6F /* SceneDelegate.swift */,
 				571D169824BF47640089FB6F /* Category.swift */,
-				571D169C24BF4AE30089FB6F /* DataSource.swift */,
-				571D168824BF46FD0089FB6F /* ViewController.swift */,
 				571D169A24BF48710089FB6F /* Item.swift */,
+				571D169C24BF4AE30089FB6F /* DataSource.swift */,
+				571D168824BF46FD0089FB6F /* ItemFeedViewController.swift */,
+				5714570324BF813B00E4F9E1 /* AddItemViewController.swift */,
 				571D168A24BF46FD0089FB6F /* Main.storyboard */,
 				571D168D24BF46FD0089FB6F /* Assets.xcassets */,
 				571D168F24BF46FD0089FB6F /* LaunchScreen.storyboard */,
@@ -149,8 +152,9 @@
 			files = (
 				571D169D24BF4AE30089FB6F /* DataSource.swift in Sources */,
 				571D169B24BF48710089FB6F /* Item.swift in Sources */,
-				571D168924BF46FD0089FB6F /* ViewController.swift in Sources */,
+				571D168924BF46FD0089FB6F /* ItemFeedViewController.swift in Sources */,
 				571D168524BF46FD0089FB6F /* AppDelegate.swift in Sources */,
+				5714570424BF813B00E4F9E1 /* AddItemViewController.swift in Sources */,
 				571D168724BF46FD0089FB6F /* SceneDelegate.swift in Sources */,
 				571D169924BF47640089FB6F /* Category.swift in Sources */,
 			);

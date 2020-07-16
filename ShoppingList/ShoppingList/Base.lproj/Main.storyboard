@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item Feed View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ItemFeedViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,6 +22,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="902.89855072463774" y="137.94642857142856"/>
+        </scene>
+        <!--Add Item View Controller-->
+        <scene sceneID="u8f-tU-ckx">
+            <objects>
+                <viewController storyboardIdentifier="AddItemViewController" id="WKZ-Xh-Uct" customClass="AddItemViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="veY-2b-OVE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j52-fj-eX9">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP6-dH-XOg">
+                                <rect key="frame" x="20" y="302" width="374" height="30"/>
+                                <state key="normal" title="Add Item to Shopping List"/>
+                                <connections>
+                                    <action selector="didAddItemToShoppingList" destination="WKZ-Xh-Uct" eventType="touchUpInside" id="m5R-xJ-Ad6"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFi-zW-LJu">
+                                <rect key="frame" x="20" y="104" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price of Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4e-Iw-rfS">
+                                <rect key="frame" x="20" y="178" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="upx-U2-y6h" firstAttribute="trailing" secondItem="H4e-Iw-rfS" secondAttribute="trailing" constant="20" id="1NR-aD-f2Z"/>
+                            <constraint firstItem="H4e-Iw-rfS" firstAttribute="leading" secondItem="upx-U2-y6h" secondAttribute="leading" constant="20" id="8t7-eN-E9k"/>
+                            <constraint firstItem="ZP6-dH-XOg" firstAttribute="leading" secondItem="upx-U2-y6h" secondAttribute="leading" constant="20" id="Anv-PF-2UL"/>
+                            <constraint firstItem="j52-fj-eX9" firstAttribute="centerY" secondItem="veY-2b-OVE" secondAttribute="centerY" id="AuD-OS-9AJ"/>
+                            <constraint firstItem="upx-U2-y6h" firstAttribute="trailing" secondItem="DFi-zW-LJu" secondAttribute="trailing" constant="20" id="UnS-HD-d9O"/>
+                            <constraint firstItem="DFi-zW-LJu" firstAttribute="top" secondItem="upx-U2-y6h" secondAttribute="top" constant="60" id="XKN-SR-xtt"/>
+                            <constraint firstItem="j52-fj-eX9" firstAttribute="trailing" secondItem="upx-U2-y6h" secondAttribute="trailing" id="ZDH-5r-Lti"/>
+                            <constraint firstItem="DFi-zW-LJu" firstAttribute="leading" secondItem="upx-U2-y6h" secondAttribute="leading" constant="20" id="e8j-5Q-KKj"/>
+                            <constraint firstItem="j52-fj-eX9" firstAttribute="top" secondItem="ZP6-dH-XOg" secondAttribute="bottom" constant="8" id="fTe-ai-46a"/>
+                            <constraint firstItem="H4e-Iw-rfS" firstAttribute="top" secondItem="DFi-zW-LJu" secondAttribute="bottom" constant="40" id="npV-wG-uDH"/>
+                            <constraint firstItem="j52-fj-eX9" firstAttribute="leading" secondItem="upx-U2-y6h" secondAttribute="leading" id="saB-nr-4QW"/>
+                            <constraint firstItem="upx-U2-y6h" firstAttribute="trailing" secondItem="ZP6-dH-XOg" secondAttribute="trailing" constant="20" id="up6-NX-L9N"/>
+                            <constraint firstItem="j52-fj-eX9" firstAttribute="centerX" secondItem="veY-2b-OVE" secondAttribute="centerX" id="yr8-ZD-Ftp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="upx-U2-y6h"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="DFi-zW-LJu" id="C4A-kl-8XV"/>
+                        <outlet property="pickerView" destination="j52-fj-eX9" id="XRV-d1-2x3"/>
+                        <outlet property="priceTextField" destination="H4e-Iw-rfS" id="e6c-YA-iAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUz-L1-zKr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408.69565217391306" y="820.98214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sad-yv-TWZ">

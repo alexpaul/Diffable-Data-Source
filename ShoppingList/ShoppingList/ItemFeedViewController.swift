@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-  
+class ItemFeedViewController: UIViewController {
   private var tableView: UITableView!
   private var dataSource: DataSource! // is the subclass we created
 
@@ -37,7 +36,9 @@ class ViewController: UIViewController {
   private func configureDataSource() {
     dataSource = DataSource(tableView: tableView, cellProvider: { (tableView, indexPath, item) -> UITableViewCell? in
       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-      cell.textLabel?.text = "\(item.name)"
+      let price = String(format: "%.2f", item.price)
+      cell.textLabel?.text = "\(item.name)\nPrice: $\(price)"
+      cell.textLabel?.numberOfLines = 0
       return cell
     })
     
@@ -60,7 +61,8 @@ class ViewController: UIViewController {
   }
 
   @objc private func toggleEditState() {
-    
+    tableView.setEditing(!tableView.isEditing, animated: true)
+    navigationItem.leftBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
   }
   
   @objc private func presentAddVC() {
@@ -72,18 +74,32 @@ class ViewController: UIViewController {
     // 5. user is able to add a new item to a given category and click on a submit button
     // 6. use any communication paradigm to get data from the AddItemViewController back to the ViewController
     // types: (delegation, KVO, notification center, unwind segue, callback, combine)
+    
+    
+    // USING CALLBACK
+//    guard let addItemVC = storyboard?.instantiateViewController(identifier: "AddItemViewController", creator: { coder in
+//      return AddItemViewController(coder: coder) { item in
+//        print("\(item.name) was added to the shopping list")
+//      }
+//    }) else {
+//      return
+//    }
+    
+    // USING DELEGATION
+    guard let addItemVC = storyboard?.instantiateViewController(withIdentifier: "AddItemViewController") as? AddItemViewController else {
+      return
+    }
+    addItemVC.delegate = self
+    present(addItemVC, animated: true)
   }
-  
-
 }
 
-/*
-extension ViewController: AddItemViewControllerDelegate {
-  func didAddItem(item: Item) {
+extension ItemFeedViewController: AddItemViewControllerDelegate {
+  func didAddNewItem(_ addItemViewController: AddItemViewController, item: Item) {
     var snapshot = dataSource.snapshot()
     snapshot.appendItems([item], toSection: item.category)
     dataSource.apply(snapshot, animatingDifferences: true)
   }
 }
-*/
+
 
