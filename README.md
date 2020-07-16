@@ -274,6 +274,70 @@ Head to the **DataSource** class and implement the `func tableView(_ tableView: 
 
 > As of this writing as per animatingDifference make sure to set it to false. Attempting to set it to true and animate as reordering happens will lead to an internal consistency crash. 
 
+<details> 
+  <summary>Full reording solution</summary> 
+  
+```swift 
+override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+  // 1
+  guard let sourceIdentifier = itemIdentifier(for: sourceIndexPath) else {
+    return
+  }
+  
+  // 2
+  guard sourceIndexPath != destinationIndexPath else {
+    return
+  }
+  
+  // 3
+  let destinationIdentifier = itemIdentifier(for: destinationIndexPath)
+  
+  // 4
+  var snapshot = self.snapshot()
+  
+  // 5
+  if let destinationIdentifier = destinationIdentifier {
+    // i
+    if let sourceIndex = snapshot.indexOfItem(sourceIdentifier),
+      let destinationIndex = snapshot.indexOfItem(destinationIdentifier) {
+      // ii
+      let isAfter = destinationIndex > sourceIndex &&
+        snapshot.sectionIdentifier(containingItem: sourceIdentifier) == snapshot.sectionIdentifier(containingItem: destinationIdentifier)
+      
+      // iii
+      snapshot.deleteItems([sourceIdentifier])
+      
+      // iv
+      if isAfter {
+        snapshot.insertItems([sourceIdentifier], afterItem: destinationIdentifier)
+      }
+      
+      // v
+      else {
+        snapshot.insertItems([sourceIdentifier], afterItem: destinationIdentifier)
+      }
+    }
+  }
+  
+  // 6
+  else {
+    // i
+    let destinationSectionIdentifier = snapshot.sectionIdentifiers[destinationIndexPath.section]
+    
+    // ii
+    snapshot.deleteItems([sourceIdentifier])
+    
+    // iii
+    snapshot.appendItems([sourceIdentifier], toSection: destinationSectionIdentifier)
+  }
+  
+  // 7
+  apply(snapshot, animatingDifferences: false)
+}
+```
+  
+</details> 
+
 ## 11. Resources 
 
 1. [Apple docs - UITableViewDiffableDataSource](https://developer.apple.com/documentation/uikit/uitableviewdiffabledatasource)
