@@ -22,7 +22,7 @@ In the Shopping app the user will be able view multiple sections of items and th
 8. Implement `func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int)` to get the title for each of the sections. 
 9. Complete app at the end of Part 1 should look like the following: 
 
-   ![sections](Assets/shopping-list-sections.png)
+   ![sections](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/shopping-list-sections.png)
    
 #### Part 2 - Add an item to a given section 
 
@@ -69,7 +69,7 @@ Scenarios:
 3. Moving the source item before the destination item. 
 4. Moving the item to an index path that does yet exist. 
 
-![reorder sketch](Assets/reorder-scenarios.jpg)
+![reorder sketch](https://github.com/alexpaul/Diffable-Data-Source/blob/master/Assets/reorder-scenarios.png)
 
 Head to the **DataSource** class and implement the `func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)` method and follow the steps below. 
 
