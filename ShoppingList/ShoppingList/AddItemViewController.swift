@@ -8,6 +8,7 @@
 
 import UIKit
 
+// defined a protocol
 protocol AddItemViewControllerDelegate: AnyObject {
   func didAddNewItem(_ addItemViewController: AddItemViewController, item: Item)
 }
@@ -20,17 +21,6 @@ class AddItemViewController: UIViewController {
   weak var delegate: AddItemViewControllerDelegate?
   
   private var selectedCategory: Category?
-  private var didCreateItem: ((Item) -> ())?
-  
-  // USING CALLBACK AND STORYBOARD DEPENDENCY INJECTION 
-//  init?(coder: NSCoder, callback: @escaping (Item) -> ()) {
-//    super.init(coder: coder)
-//    self.didCreateItem = callback
-//  }
-//
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,20 +40,14 @@ class AddItemViewController: UIViewController {
         return
     }
     let item = Item(name: name, price: price, category: selectedCategory)
-    
-    // using delegation
-    delegate?.didAddNewItem(self, item: item)
-    
-    // using callback
-    //didCreateItem?(item)
-    
+    delegate?.didAddNewItem(self, item: item)    
     dismiss(animated: true)
   }
 }
 
 extension AddItemViewController: UIPickerViewDataSource {
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
-    return 1
+    return 1 // column
   }
   
   func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
