@@ -182,7 +182,7 @@ updatesSnapshot.sectionIdentifiers.forEach {
 1. `snapshot()`
 1. `apply(_, animatingDifferences:)`
 1. `itemIdentifier(for:)` - uses the index path to retrieve the current item 
-1. CellProvider - clousure on the data source initializer with has 3 arguments, pointer to table view, index path and current item
+1. CellProvider - clousure argument on the data source initializer which has 3 arguments: a pointer to table view or collection view, the current index path and the current item
 
 #### Snapshot 
 1. `sectionIdentifiers` - get back all the sections 
