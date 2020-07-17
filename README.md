@@ -177,10 +177,21 @@ updatesSnapshot.sectionIdentifiers.forEach {
 1. NSDiffableDataSourceSnapshot
 1. SectionIdentifierType
 1. ItemIdentifierType 
-1. `apply()`
+
+#### Data source 
 1. `snapshot()`
-1. `itemIdentifier(for:)`
-1. CellProvider 
+1. `apply(_, animatingDifferences:)`
+1. `itemIdentifier(for:)` - uses the index path to retrieve the current item 
+1. CellProvider - clousure on the data source initializer with has 3 arguments, pointer to table view, index path and current item
+
+#### Snapshot 
+1. `sectionIdentifiers` - get back all the sections 
+1. `deleteItems(_:)` - remove items from the snapshot 
+1. `indexOfItem` - return the index of an item 
+1. `sectionIdentifier(containingItem: _)` - get the section for a given item 
+1. `insertItems(_:, afterItem: _)` - insert a given source item(s) after a destination item
+1. `insertItems(_:, beforeItem: _)` - insert a given source item(s) before a destination item
+
 
 ## 9. Countdown app using diffable data source
 
