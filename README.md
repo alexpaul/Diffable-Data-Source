@@ -376,3 +376,7 @@ override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: Ind
 4. [Apple docs - Table Views](https://developer.apple.com/documentation/uikit/views_and_controls/table_views)
 5. [NSDiffableDataSourceSnapshot](https://developer.apple.com/documentation/uikit/nsdiffabledatasourcesnapshot)
 
+## 12. Videos associated with this repo 
+
+## [Diffable Data Source - YouTube Playlist](https://www.youtube.com/playlist?list=PLjdVqs-1R8wFefsxCnFTX5B3r8uV875V5)
+
