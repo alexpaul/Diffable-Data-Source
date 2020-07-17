@@ -185,6 +185,9 @@ updatesSnapshot.sectionIdentifiers.forEach {
 1. CellProvider - clousure argument on the data source initializer which has 3 arguments: a pointer to table view or collection view, the current index path and the current item
 
 #### Snapshot 
+1. `appendSections(_:)` - add sections to the snapshot 
+1. `appendItems(_:)` - add items to the current section
+1. `appendItems(_:, toSection:_)` - append items to a given section
 1. `sectionIdentifiers` - get back all the sections 
 1. `deleteItems(_:)` - remove items from the snapshot 
 1. `indexOfItem` - return the index of an item 
